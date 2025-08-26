@@ -1,0 +1,12 @@
+# ks.yaml (apply team repo into their namespace)
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata: { name: platform-demo, namespace: platform-demo }
+spec:
+  sourceRef: { kind: GitRepository, name: platform-demo }
+  path: ./clusters/sandbox/platform-demo
+  targetNamespace: platform-demo
+  serviceAccountName: platform-demo
+  interval: 1m
+  prune: true
+  wait: true

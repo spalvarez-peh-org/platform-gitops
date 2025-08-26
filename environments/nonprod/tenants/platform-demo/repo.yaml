@@ -1,0 +1,8 @@
+# repo.yaml (team app repo)
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata: { name: platform-demo, namespace: platform-demo }
+spec:
+  url: https://github.com/spalvarez-peh-org/platform-demo.git
+  ref: { branch: main }
+  interval: 1m

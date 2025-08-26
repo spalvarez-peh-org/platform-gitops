@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata: { name: public-gw, namespace: platform-demo }
+spec:
+  selector: { istio: ingressgateway }  # targets istio ingress gateway
+  servers:
+  - port: { number: 80, name: http, protocol: HTTP }
+    hosts: [ "platform-demo.local" ]
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata: { name: platform-demo, namespace: platform-demo }
+spec:
+  hosts: [ "platform-demo.local" ]
+  gateways: [ "public-gw" ]
+  http:
+  - route:
+    - destination: { host: platform-demo.platform-demo.svc.cluster.local, port: { number: 80 } }
