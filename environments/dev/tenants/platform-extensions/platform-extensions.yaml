@@ -15,7 +15,7 @@ metadata:
   namespace: flux-system
 spec:
   sourceRef: { kind: GitRepository, name: platform-extensions }
-  path: ./environments/sandbox
+  path: ./environments/dev
   interval: 1m
   prune: true
   wait: true
