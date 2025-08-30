@@ -4,7 +4,7 @@ kind: Kustomization
 metadata: { name: platform-demo, namespace: platform-demo }
 spec:
   sourceRef: { kind: GitRepository, name: platform-demo }
-  path: ./clusters/dev/platform-demo
+  path: ./clusters/sandbox/platform-demo
   targetNamespace: platform-demo
   serviceAccountName: platform-demo
   interval: 1m
